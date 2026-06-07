@@ -1,116 +1,86 @@
-# CSC 4717 — Web Technologies-I (Frontend Starter)
+# TaskFlow — Task Management App
 
-This repository is the **official frontend starter template** for **CSC 4717 Web Technologies-I**.
+A full-stack task management application built with React, Express, and MongoDB.
 
-You will use this starter to:
+## Group Members
+| Name | Roll No | Role |
+|------|---------|------|
+| Misbah Ali | 2312122 | Frontend Developer |
+| Haseeb Dhamrah | 2312114 | Backend Developer |
 
-- set up your development environment (Week 1),
-- complete weekly milestone assignments,
-- and continuously build your project into a **final polished version** for presentation.
+## Section
+BSCS 6A — Group 15
 
----
+## Technologies Used
 
-## What’s inside (Frontend Tech Stack)
+### Frontend (Misbah)
+- React + TypeScript
+- Vite
+- React Router DOM
+- CSS
 
-- **Vite** — fast development server + build tool  
-  https://vitejs.dev/
-- **React** — UI library  
-  https://react.dev/
-- **TypeScript** — type-safe JavaScript  
-  https://www.typescriptlang.org/
-- **CSS Modules** — scoped component styling (`*.module.css`)  
-  https://github.com/css-modules/css-modules
-- **pnpm** — package manager  
-  https://pnpm.io/
-- **ESLint** — code quality and best practices  
-  https://eslint.org/
-- **Prettier** — code formatter (consistent style)  
-  https://prettier.io/
+### Backend (Haseeb)
+- Node.js
+- Express.js
+- MongoDB + Mongoose
+- dotenv
 
----
+## How to Run
 
-## Before you start (Windows)
-
-### Required installs
-
-1. **Node.js (LTS)**
-
-- Download and install the LTS version from:
-  https://nodejs.org/
-
-2. **pnpm** (install after Node.js)
-   Open **PowerShell** and run:
-
+### 1. Clone the Repository
 ```bash
-npm i -g pnpm
+git clone https://github.com/Haseeb-dhamrah/taskflow-web-project.git
+cd taskflow-web-project
 ```
 
-3. **Git**
-
-- Download and install from:
-  https://git-scm.com/downloads
-
-4. **VS Code**
-
-- Download and install from:
-  https://code.visualstudio.com/
-
-### Required account
-
-- GitHub account (for submitting assignments)
-  https://github.com/
-
-## Check your installation (PowerShell)
-
+### 2. Backend Setup (Haseeb)
 ```bash
-node -v
-pnpm -v
-git --version
+cd backend
+node index.js
+npm install
 ```
 
-## Getting started
+Create `.env` file in backend folder:
 
-1. **Create your own repo from the course template**
-
-- Open the course starter repository on GitHub.
-
-- Click Use this template.
-
-- Name your repository according to your project (example: my-project-frontend).
-
-- Create the repository under your GitHub account.
-
-2. **Clone your repository**
-
+Run backend:
 ```bash
-git clone https://github.com/<your-username>/<your-repo-name>.git
-cd <your-repo-name>
+node index.js
 ```
 
-3. **Install dependencies**
-
+### 3. Frontend Setup (Misbah)
 ```bash
-pnpm install
+cd frontend
+npm install
+npm run dev
 ```
 
-4. **Run the project**
+Open: http://localhost:5173
 
-```bash
-pnpm dev
-```
+## API Routes
 
-Vite will print a local URL (usually):
-- http://localhost:5173
+| Method | Route | Description |
+|--------|-------|-------------|
+| GET | /api/tasks | Get all tasks |
+| GET | /api/tasks?status=Done | Filter by status |
+| POST | /api/tasks | Create new task |
+| DELETE | /api/tasks/:id | Delete a task |
 
-Open it in your browser.
+## Implemented Features
 
-## Useful commands
+### Product Feature — Filter by Status (Group 15)
+- Status dropdown with All, Todo, In Progress, Done options
+- Frontend filter triggers backend query
+- Backend accepts and validates status query parameter
+- MongoDB returns only matching records
 
-```bash
-pnpm dev          # start development server
-pnpm build        # build for production
-pnpm preview      # preview production build locally
-pnpm lint         # run ESLint checks
-pnpm format       # format code using Prettier
-pnpm format:check # check formatting (no changes)
-```
+### Engineering Feature — Frontend + Backend Validation
+- Frontend: Required field checks, invalid status/priority messages
+- Backend: Request body validation with proper error messages
+- Returns HTTP 400 for invalid input
+
+## MongoDB Setup
+1. Create free account at mongodb.com/atlas
+2. Create a free M0 cluster
+3. Create database user
+4. Copy connection string to .env file
+5. Replace `<password>` with your actual password
