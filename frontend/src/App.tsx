@@ -31,7 +31,7 @@ export default function App() {
   }, []);
 
   // 2. DELETE TASK: Backend par delete request bhejne ke liye
-  const handleDeleteTask = async (id: number | string) => {
+  const handleDeleteTask = async (id: string) => {
     try {
       const response = await fetch(`http://localhost:5000/api/tasks/${id}`, {
         method: 'DELETE',
@@ -39,7 +39,7 @@ export default function App() {
 
       if (response.ok) {
         // Agar backend se delete ho gaya, toh state se bhi nikal do
-        setTasks(tasks.filter(task => task.id !== id));
+        setTasks(tasks.filter(task => task._id !== id));
         alert("Task deleted successfully! 🗑️");
       } else {
         alert("Failed to delete task from server");

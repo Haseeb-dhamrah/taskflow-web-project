@@ -3,7 +3,7 @@ import { type Task } from '../types/Task';
 
 type TaskCardProps = {
   task: Task;
-  onDelete: (id: string) => void;
+  onDelete: (id: number) => void;
 };
 
 export const TaskCard: React.FC<TaskCardProps> = ({ task, onDelete }) => {
@@ -18,7 +18,7 @@ export const TaskCard: React.FC<TaskCardProps> = ({ task, onDelete }) => {
         <span className="date">Created: {task.createdAt}</span>
       </div>
       <div className="card-actions">
-        <button onClick={() => onDelete(task._id)} className="btn delete-btn">Delete</button>
+        <button onClick={() => onDelete(task.id)} className="btn delete-btn">Delete</button>
       </div>
     </div>
   );

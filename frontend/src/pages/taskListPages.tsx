@@ -4,7 +4,7 @@ import { TaskCard } from '../components/taskCard';
 
 type TaskListPageProps = {
   tasks: Task[];
-  onDelete: (id: number | string) => void;
+  onDelete: (id: string) => void;
 };
 
 export const TaskListPage: React.FC<TaskListPageProps> = ({ onDelete }) => {
@@ -60,7 +60,7 @@ export const TaskListPage: React.FC<TaskListPageProps> = ({ onDelete }) => {
         ) : (
           filteredTasks.map(task => (
             <TaskCard 
-              key={task.id} 
+              key={task._id} 
               task={task} 
               // State update ke baad layout ko automatic refresh karne ke liye fetch function pass kar rahe hain
               onDelete={async (id) => {

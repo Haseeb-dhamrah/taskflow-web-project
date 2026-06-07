@@ -2,7 +2,7 @@ export type TaskStatus = "Todo" | "In Progress" | "Done";
 export type TaskPriority = "Low" | "Medium" | "High";
 
 export type Task = {
-  _id: string;
+  id: number;
   title: string;
   description: string;
   status: TaskStatus;
